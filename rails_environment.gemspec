@@ -21,4 +21,10 @@ Gem::Specification.new do |s|
   
   s.add_development_dependency 'rspec'
   s.add_development_dependency 'coveralls'
+  
+  if ENV['ENGINE_DEVELOPER'] == 'true'
+    s.add_development_dependency "redcarpet"
+    s.add_development_dependency "yard"
+  end
+  
 end

@@ -1,13 +1,15 @@
 # rails_environment
 
+[![Gem Version](https://badge.fury.io/rb/rails_environment.png)](http://badge.fury.io/rb/rails_environment)
 [![Build Status](https://travis-ci.org/stevedowney/rails_environment.png)](https://travis-ci.org/stevedowney/rails_environment)
 [![Code Climate](https://codeclimate.com/github/stevedowney/rails_environment.png)](https://codeclimate.com/github/stevedowney/rails_environment)
 [![Coverage Status](https://coveralls.io/repos/stevedowney/rails_environment/badge.png)](https://coveralls.io/r/stevedowney/rails_environment)
 
 This class facilitates code like:
+
 ```ruby
 if RailsEnvironment.production?
-  # do stuff only in production environment
+   <do_production_only_stuff>
 end
 ```
 
@@ -17,7 +19,7 @@ This prevent typos like:
 if Rails.env == 'productoin' ...
 if Rails.env.productoin? ...
 ```
-so we get a runtime error if we misspell an environment (v. a bug)
+So we get a runtime error if we misspell an environment (v. a bug)
 
 For standard Rails applications with `development`, `test` and `production` environments you get:
 
@@ -41,5 +43,8 @@ For standard Rails applications with `development`, `test` and `production` envi
 * `RailsEnvironment.not_test_or_production?`
 * etc.
 
-The methods available are based on the actual environments, i.e., `../config/environments/*.rb`
+## Notes
+
+* The methods available are based on the actual environments, i.e., `../config/environments/*.rb`
+* If you add/remove a file in `../config/environments` you will need to restart your server
 

@@ -1,6 +1,7 @@
 module RailsEnvironment
   
   @@environments = nil
+  @@mutex = Mutex.new
   
   class << self
     
@@ -9,7 +10,9 @@ module RailsEnvironment
     end
 
     def load_environments
-      Dir[Rails.root.join('config/environments/*.rb')].map { |f| File.basename(f, '.rb') }
+      @@mutex.synchronize do
+         @@environments = Dir[Rails.root.join('config/environments/*.rb')].map { |f| File.basename(f, '.rb') }
+      end
     end
     
     def environments
