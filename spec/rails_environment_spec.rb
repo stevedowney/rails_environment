@@ -44,6 +44,7 @@ describe RailsEnvironment do
   end
   
   it 'Error' do
-    expect { RailsEnvironment.foo }.to raise_error(NoMethodError, "undefined method `foo' for RailsEnvironment:Module")
+    expect { RailsEnvironment.foo }.
+      to raise_error(NoMethodError) {|e| e.name == :things }
   end
 end
