@@ -5,7 +5,9 @@
 [![Code Climate](https://codeclimate.com/github/stevedowney/rails_environment.png)](https://codeclimate.com/github/stevedowney/rails_environment)
 [![Coverage Status](https://coveralls.io/repos/stevedowney/rails_environment/badge.png)](https://coveralls.io/r/stevedowney/rails_environment)
 
-This class facilitates code like:
+Error-free convenience methods for determining the running Rails environment.
+
+This gem enables code like:
 
 ```ruby
 if RailsEnvironment.production?
@@ -13,13 +15,13 @@ if RailsEnvironment.production?
 end
 ```
 
-This prevent typos like:
+This prevents typos like:
 
 ```ruby
 if Rails.env == 'productoin' ...
 if Rails.env.productoin? ...
 ```
-So we get a runtime error if we misspell an environment (v. a bug)
+So we get a runtime error if we misspell an environment instead of a silent bug.
 
 For standard Rails applications with `development`, `test` and `production` environments you get:
 
