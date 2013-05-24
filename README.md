@@ -1,5 +1,6 @@
 # rails_environment
 
+[![Build Status](https://travis-ci.org/stevedowney/rails_environment.png)](https://travis-ci.org/stevedowney/rails_environment)
 [![Code Climate](https://codeclimate.com/github/stevedowney/rails_environment.png)](https://codeclimate.com/github/stevedowney/rails_environment)
 
 This class facilitates code like:

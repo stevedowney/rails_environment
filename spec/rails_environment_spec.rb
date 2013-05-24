@@ -18,7 +18,7 @@ end
 describe RailsEnvironment do
 
   it ".environments" do
-    RailsEnvironment.environments.should == %w(development production staging)
+    RailsEnvironment.environments.sort.should == %w(development production staging)
   end
 
   it '.<environment>?' do
