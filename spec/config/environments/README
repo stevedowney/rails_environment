@@ -1,0 +1,3 @@
+*.rb files in this directory simulate the ../config/environments directory in a Rails app.
+
+This directory and its parents are only to support the specs.
