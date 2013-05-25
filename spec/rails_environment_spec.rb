@@ -1,8 +1,4 @@
-require 'coveralls'
-Coveralls.wear!
-SimpleCov.root("#{File.dirname(__FILE__)}/../lib")
-
-require 'rails_environment'
+require 'spec_helper'
 
 module Rails
   module_function

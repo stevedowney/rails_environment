@@ -9,11 +9,9 @@ Gem::Specification.new do |s|
   s.authors       = ["Steve Downey"]
   s.email         = ["steve.downtown@gmail.com"]
   s.homepage      = "https://github.com/stevedowney/rails_environment"
-  s.summary       = "Convenience methods for deciding what Rails environment you are in."
-  s.description   = "Eliminate silent errors in envionment detection due to typos."
+  s.summary       = "Convenience methods for detecting Rails environment."
+  s.description   = "Eliminate silent errors in Rails environment detection due to typos."
 
-  s.files         = `git ls-files app lib`.split("\n")
-  
   s.files = Dir["{lib}/**/*"] + ["MIT-LICENSE", "CHANGELOG.md", "Rakefile", "README.md"]
   
   s.platform      = Gem::Platform::RUBY
