@@ -23,9 +23,9 @@ if Rails.env.productoin? ...
 ```
 So we get a runtime error if we misspell an environment instead of a silent bug.
 
-For standard Rails applications with `development`, `test` and `production` environments you get:
-
 ## Available methods
+
+For standard Rails applications with `development`, `test` and `production` environments you get:
 
 **Predicate method for each environment**
 
