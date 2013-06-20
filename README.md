@@ -45,6 +45,17 @@ For standard Rails applications with `development`, `test` and `production` envi
 * `RailsEnvironment.not_test_or_production?`
 * etc.
 
+**Short and Long environment names**
+
+```ruby
+RailsEnvironment.short  #=> 'DEV'
+RailsEnvironment.long   #=> 'Development'
+
+# customize the short/long names
+RailsEnvironment.environment_strings['development']['short'] = 'DVL'
+RailsEnvironment.short  #=> 'DVL'
+```
+
 ## Notes
 
 * The methods available are based on the actual environments, i.e., `../config/environments/*.rb`

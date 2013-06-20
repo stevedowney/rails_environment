@@ -18,6 +18,36 @@ describe RailsEnvironment do
     RailsEnvironment.rails_env.should == 'development'
   end
   
+  it ".short, .display" do
+    RailsEnvironment.short.should == 'DEV'
+    RailsEnvironment.long.should == 'Development'
+    
+    Rails.stub env: 'test'
+    RailsEnvironment.short.should == 'TST'
+    RailsEnvironment.long.should == 'Test'
+
+    Rails.stub env: 'production'
+    RailsEnvironment.short.should == 'PRD'
+    RailsEnvironment.long.should == 'Production'
+
+    Rails.stub env: 'staging'
+    RailsEnvironment.short.should == 'STG'
+    RailsEnvironment.long.should == 'Staging'
+
+    Rails.stub env: 'quality_assurance'
+    RailsEnvironment.short.should == 'QA'
+    RailsEnvironment.long.should == 'Quality Assurance'
+    
+    Rails.stub env: 'foo'
+    RailsEnvironment.short.should == 'foo'
+    RailsEnvironment.long.should == 'foo'
+  end
+  
+  it ".environment_strings" do
+    RailsEnvironment.environment_strings['development']['short'] = 'DVL'
+    RailsEnvironment.short.should == 'DVL'
+  end
+  
   it ".environments" do
     RailsEnvironment.environments.sort.should == %w(development production staging)
   end

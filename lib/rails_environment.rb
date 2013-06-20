@@ -1,7 +1,29 @@
 module RailsEnvironment
   
-  @environments = nil
   @mutex = Mutex.new
+  @environments = nil
+  @environment_strings = {
+    'development' => {
+      'short' => 'DEV',
+      'long'  => 'Development'
+    },
+    'test' => {
+      'short' => 'TST',
+      'long'  => 'Test'
+    },
+    'staging' => {
+      'short' => 'STG',
+      'long'  => 'Staging'
+    },
+    'quality_assurance' => {
+      'short' => 'QA',
+      'long'  => 'Quality Assurance'
+    },
+    'production' => {
+      'short' => 'PRD',
+      'long'  => 'Production'
+    },
+  }
   
   class << self
     
@@ -9,6 +31,16 @@ module RailsEnvironment
       Rails.env
     end
 
+    def short
+      strings = @environment_strings[rails_env]
+      (strings && strings['short']) || rails_env
+    end
+    
+    def long
+      strings = @environment_strings[rails_env]
+      (strings && strings['long']) || rails_env
+    end
+    
     def load_environments
       @mutex.synchronize do
          @environments = Dir[Rails.root.join('config/environments/*.rb')].map { |f| File.basename(f, '.rb') }
@@ -17,6 +49,10 @@ module RailsEnvironment
     
     def environments
       @environments ||= load_environments
+    end
+    
+    def environment_strings
+      @environment_strings
     end
     
     def method_missing(method, *args)
