@@ -14,6 +14,10 @@ end
 
 describe RailsEnvironment do
 
+  it ".rails_env" do
+    RailsEnvironment.rails_env.should == 'development'
+  end
+  
   it ".environments" do
     RailsEnvironment.environments.sort.should == %w(development production staging)
   end

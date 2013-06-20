@@ -1,7 +1,7 @@
 module RailsEnvironment
   
-  @@environments = nil
-  @@mutex = Mutex.new
+  @environments = nil
+  @mutex = Mutex.new
   
   class << self
     
@@ -10,13 +10,13 @@ module RailsEnvironment
     end
 
     def load_environments
-      @@mutex.synchronize do
-         @@environments = Dir[Rails.root.join('config/environments/*.rb')].map { |f| File.basename(f, '.rb') }
+      @mutex.synchronize do
+         @environments = Dir[Rails.root.join('config/environments/*.rb')].map { |f| File.basename(f, '.rb') }
       end
     end
     
     def environments
-      @@environments ||= load_environments
+      @environments ||= load_environments
     end
     
     def method_missing(method, *args)
